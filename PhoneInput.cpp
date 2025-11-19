@@ -1,4 +1,4 @@
-﻿// PhoneInput.cpp: определяет точку входа для приложения.
+// PhoneInput.cpp: определяет точку входа для приложения.
 //
 
 #include <iostream>
@@ -13,12 +13,12 @@ using namespace std;
 
 static const wstring numpad_str = L"@@@@АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ    ";
 
-
-
-
-
 static wchar_t get_numpad_char(int* taps, char * numpad_btn)
 {
+	if (*taps == 0)
+	{
+		return wchar_t(L"");
+	}
 	int a = (int) *numpad_btn;
 	int numpad_char_idx = ((*taps - 1) % CHARS_PER_NUMPAD);
 	int numpad_idx = a - (int) 48;
@@ -53,6 +53,11 @@ wstring handle_numpad(int argc, char* argv[])
 		*prev_char = (char)arg[0];
 
 		for (int i = 0; i < arg.size(); i++) {
+			if (*prev_char == (char) " ")
+			{
+				*prev_char = (char)arg[i];
+				continue;
+			}
 			if (*prev_char == (char)arg[i])
 			{
 				// Пользователь нажимает одну и ту же кнопку несколько раз
@@ -85,7 +90,6 @@ int main(int argc, char* argv[])
 	wstring result = handle_numpad(argc, argv);
 	return 0;
 }
-
 
 
 
