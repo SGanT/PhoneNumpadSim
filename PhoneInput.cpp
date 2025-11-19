@@ -82,10 +82,10 @@ int main(int argc, char* argv[])
 {
 	setlocale(LC_CTYPE, "rus");
 	init_tests();
-	string s = string(argv[1]);
 	wstring result = handle_numpad(argc, argv);
 	return 0;
 }
+
 
 
 
