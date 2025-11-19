@@ -44,7 +44,8 @@ bool test(int argc, char** input, wstring expected)
 			comparison_ptr+=6;
 		}
 	}
-	wcout << L"Последовательность: " << **input << endl;
+	wcout << L"Последовательность: ";
+	cout << string(input[1]) << endl;
 	wcout << L"Ожидаемый результат: " << expected << endl;
 	wcout << L"Результат выполнения: " << comparison_result << endl;
 	wcout << L"Результат теста: " << (isEqual ? L"ПРОЙДЕН" : L"НЕ ПРОЙДЕН") << endl;
