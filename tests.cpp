@@ -49,7 +49,6 @@ bool test(int argc, char** input, wstring expected)
 	wcout << L"Ожидаемый результат: " << expected << endl;
 	wcout << L"Результат выполнения: " << comparison_result << endl;
 	wcout << L"Результат теста: " << (isEqual ? L"ПРОЙДЕН" : L"НЕ ПРОЙДЕН") << endl;
-	wcout << comparison_result << endl;
 	return isEqual;
 }
 
@@ -61,3 +60,4 @@ int init_tests() {
 	test(2, t, wstring(L"ПРИВЕТТ"));
 	return 0;
 }
+
